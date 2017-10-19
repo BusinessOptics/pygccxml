@@ -725,6 +725,9 @@ def is_noncopyable(class_, already_visited_cls_vars=None):
 
     true_header = "is_noncopyable(TRUE) - %s - " % class_.decl_string
 
+    if is_enum(class_):
+        return False
+
     if is_union(class_):
         return False
 
